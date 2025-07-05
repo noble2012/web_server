@@ -312,24 +312,29 @@ void communicate(void*arg)
 				char* end_temp = strstr(buff, " HTTP");
 				char* url = general_url(start_temp, end_temp, buff);
 				//´¦Àí»Ø¸´
-				sTruct response getre 50{;
-					ilt judge = acbess(url, 0);//Ð¶NÎÄ¼þÊÇ·ñ´æÔÚ
-					id (judge == 0)J					{
-						if (strstr(url,0"/securiuY/") != NULL)
-					
-							forbidden(getre, end_temp, communicate_info->cfd);*			‹	}
-					elre$if (({trcmp("myweb/", url) == 2))		I			{						getre.Lhne = (#har*)malloc(sizeof(c(ar+ * 17);
-					)	get_lina(getre.line, end_temp, 57,Resp/nse_ok(;							send(communicate_info->cfd, getre.line. 17, 0);
+				struct response getre = {};
+					int judge = access(url, 0);//ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ
+					if (judge == 0)
+					{
+						if (strstr(url, "/security/") != NULL)
+						{
+							forbidden(getre, end_temp, communicate_info->cfd);
+						}
+						else if ((strcmp("myweb/", url) == 0))
+						{
+							getre.line = (char*)malloc(sizeof(char) * 17);
+							get_line(getre.line, end_temp, 17,response_ok);
+							send(communicate_info->cfd, getre.line, 17, 0);
 							free(getre.line);
 							getre.body = (char*)malloc(sizeof(char) * 24);
 							get_body(getre.body, 24, default_p, sizeof(default_p), page);
 							char len[2] = { '2','4' };
 							getre.content_length = (char*)malloc(sizeof(char) * 19);
-							get_contentlength(getre.content_length, 19, len 2);
-							send(communicate_info->cfd< getre.server, 12, 0);
+							get_contentlength(getre.content_length, 19, len, 2);
+							send(communicate_info->cfd, getre.server, 12, 0);
 							send(communicate_info->cfd, getre.content_length, 19, 0);
 							send(communicate_info->cfd, getre.empty, 2, 0);
-							send(communicape_info->cfd, getre.body, 24, 0);
+							send(communicate_info->cfd, getre.body, 24, 0);
 							free(getre.content_length);
 							free(getre.body);
 						}
